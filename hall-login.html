@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login – POTSEC Hall Management</title>
+  <link rel="stylesheet" href="hall-style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <nav class="navbar">
+    <a href="hall-index.html" class="logo">
+      <div class="logo-badge">P</div>
+      <div><div class="logo-name">POTSEC</div><div class="logo-sub">Hall Management System</div></div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="hall-index.html">Home</a></li>
+      <li><a href="hall-rooms.html">Book a Room</a></li>
+      <li><a href="hall-mybooking.html">My Booking</a></li>
+      <li><a href="hall-admin.html">Admin</a></li>
+      <li><a href="hall-login.html" class="btn-nav active">Login</a></li>
+    </ul>
+    <button class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+  </nav>
+
+  <section class="auth-layout">
+
+    <!-- Left Brand Panel -->
+    <div class="auth-brand">
+      <div class="auth-brand-inner">
+        <div class="logo" style="margin-bottom:2rem;">
+          <div class="logo-badge lg">P</div>
+          <div><div class="logo-name" style="font-size:1.6rem;">POTSEC</div><div class="logo-sub">Hall Management System</div></div>
+        </div>
+        <h2>Your room,<br/><em>your space, sorted.</em></h2>
+        <p>Log in to book accommodation, track your application, or manage hall operations as an administrator.</p>
+        <div class="auth-highlights">
+          <div class="auth-hl">🏛️ 4 Halls · 248 Rooms</div>
+          <div class="auth-hl">📋 Paperless booking</div>
+          <div class="auth-hl">✅ Instant confirmation</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Form Panel -->
+    <div class="auth-form-panel">
+
+      <div class="auth-tabs">
+        <button class="auth-tab active" onclick="showTab('login')">Student Login</button>
+        <button class="auth-tab" onclick="showTab('register')">Register</button>
+      </div>
+
+      <!-- Login -->
+      <div id="login-form" class="auth-form active">
+        <h2>Welcome back</h2>
+        <p class="auth-sub">Log in to your POTSEC accommodation account</p>
+
+        <div class="form-group">
+          <label>Student ID or Email</label>
+          <input type="text" placeholder="e.g. POTSEC/2023/042"/>
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" placeholder="Enter your password"/>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;">
+          <label class="check-label"><input type="checkbox"/> Remember me</label>
+          <a href="#" class="link-sm">Forgot password?</a>
+        </div>
+        <a href="hall-mybooking.html" class="btn-primary" style="display:block;text-align:center;padding:0.85rem;">Login to Account</a>
+
+        <div class="auth-divider"><span>or</span></div>
+
+        <a href="hall-admin.html" class="btn-ghost" style="display:block;text-align:center;padding:0.75rem;border-radius:10px;font-weight:600;">Login as Administrator</a>
+        <p class="auth-switch">No account yet? <a href="#" onclick="showTab('register')">Register here</a></p>
+      </div>
+
+      <!-- Register -->
+      <div id="register-form" class="auth-form">
+        <h2>Create account</h2>
+        <p class="auth-sub">Register to start your room booking</p>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>First Name</label>
+            <input type="text" placeholder="e.g. Kofi"/>
+          </div>
+          <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" placeholder="e.g. Owusu"/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>POTSEC Student ID</label>
+          <input type="text" placeholder="e.g. POTSEC/2024/001"/>
+        </div>
+        <div class="form-group">
+          <label>School Email</label>
+          <input type="email" placeholder="e.g. kofi@potsec.edu.gh"/>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Programme</label>
+            <input type="text" placeholder="e.g. Electrical Eng."/>
+          </div>
+          <div class="form-group">
+            <label>Level</label>
+            <select>
+              <option>Level 100</option>
+              <option>Level 200</option>
+              <option>Level 300</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Gender</label>
+          <select>
+            <option>Select gender</option>
+            <option>Male</option>
+            <option>Female</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Password</label>
+            <input type="password" placeholder="Create password"/>
+          </div>
+          <div class="form-group">
+            <label>Confirm Password</label>
+            <input type="password" placeholder="Repeat password"/>
+          </div>
+        </div>
+        <label class="check-label" style="margin-bottom:1.5rem;"><input type="checkbox"/> I agree to the <a href="#" class="link-sm">hostel terms & rules</a></label>
+        <a href="hall-rooms.html" class="btn-primary" style="display:block;text-align:center;padding:0.85rem;">Create Account</a>
+        <p class="auth-switch">Already registered? <a href="#" onclick="showTab('login')">Login here</a></p>
+      </div>
+
+    </div>
+  </section>
+
+  <script>
+    function showTab(tab) {
+      document.querySelectorAll('.auth-form').forEach(f => f.classList.remove('active'));
+      document.querySelectorAll('.auth-tab').forEach(t => t.classList.remove('active'));
+      document.getElementById(tab + '-form').classList.add('active');
+      document.querySelectorAll('.auth-tab')[tab === 'login' ? 0 : 1].classList.add('active');
+    }
+  </script>
+
+</body>
+</html>

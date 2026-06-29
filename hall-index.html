@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>POTSEC Hall Management System</title>
+  <link rel="stylesheet" href="hall-style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <a href="hall-index.html" class="logo">
+      <div class="logo-badge">P</div>
+      <div>
+        <div class="logo-name">POTSEC</div>
+        <div class="logo-sub">Hall Management System</div>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="hall-index.html" class="active">Home</a></li>
+      <li><a href="hall-rooms.html">Book a Room</a></li>
+      <li><a href="hall-mybooking.html">My Booking</a></li>
+      <li><a href="hall-admin.html">Admin</a></li>
+      <li><a href="hall-login.html" class="btn-nav">Login</a></li>
+    </ul>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <span class="eyebrow">POTSEC TVET College · Hostel Services</span>
+      <h1>Find your room.<br/>Settle in. <em>Focus.</em></h1>
+      <p>Book and manage your hostel accommodation across all four POTSEC halls — fast, paperless, and hassle-free.</p>
+      <div class="hero-actions">
+        <a href="hall-rooms.html" class="btn-primary">Book a Room</a>
+        <a href="hall-mybooking.html" class="btn-ghost">View My Booking</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-card">
+        <div class="stat-num">4</div>
+        <div class="stat-label">Halls on Campus</div>
+      </div>
+      <div class="stat-card highlight">
+        <div class="stat-num">248</div>
+        <div class="stat-label">Total Rooms</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">62</div>
+        <div class="stat-label">Available Now</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HALLS OVERVIEW -->
+  <section class="halls-section">
+    <div class="section-head">
+      <h2>Our Halls of Residence</h2>
+      <p>Choose from four well-maintained halls, each with its own character and facilities.</p>
+    </div>
+    <div class="halls-grid">
+
+      <div class="hall-card">
+        <div class="hall-banner" style="background: linear-gradient(135deg,#1a3a5c,#2e6da4);">
+          <span class="hall-icon">🏛️</span>
+        </div>
+        <div class="hall-body">
+          <div class="hall-tag available">14 rooms available</div>
+          <h3>Nkatiah Hall</h3>
+          <p>A well-established hall with spacious rooms and a strong community spirit. Close to the main workshop block.</p>
+          <ul class="hall-amenities">
+            <li>🚿 Shared bathrooms</li>
+            <li>📶 Wi-Fi enabled</li>
+            <li>💡 24hr electricity</li>
+            <li>🔒 Secure entry</li>
+          </ul>
+          <a href="hall-rooms.html?hall=nkatiah" class="btn-primary sm">View Rooms</a>
+        </div>
+      </div>
+
+      <div class="hall-card">
+        <div class="hall-banner" style="background: linear-gradient(135deg,#4a1a6b,#8e44ad);">
+          <span class="hall-icon">👑</span>
+        </div>
+        <div class="hall-body">
+          <div class="hall-tag available">20 rooms available</div>
+          <h3>Majesty Hall</h3>
+          <p>The newest hall on campus, offering modern fittings, clean corridors, and a quiet study environment.</p>
+          <ul class="hall-amenities">
+            <li>🚿 En-suite options</li>
+            <li>📶 Wi-Fi enabled</li>
+            <li>💡 24hr electricity</li>
+            <li>🍽️ Nearest to cafeteria</li>
+          </ul>
+          <a href="hall-rooms.html?hall=majesty" class="btn-primary sm">View Rooms</a>
+        </div>
+      </div>
+
+      <div class="hall-card">
+        <div class="hall-banner" style="background: linear-gradient(135deg,#1a5c3a,#27ae60);">
+          <span class="hall-icon">🌿</span>
+        </div>
+        <div class="hall-body">
+          <div class="hall-tag available">18 rooms available</div>
+          <h3>Appiah Agyei Hall</h3>
+          <p>Named after a pioneering POTSEC alumnus. Peaceful surroundings, suitable for focused academic work.</p>
+          <ul class="hall-amenities">
+            <li>🚿 Shared bathrooms</li>
+            <li>📶 Wi-Fi enabled</li>
+            <li>💡 24hr electricity</li>
+            <li>📚 Study room on-site</li>
+          </ul>
+          <a href="hall-rooms.html?hall=appiah" class="btn-primary sm">View Rooms</a>
+        </div>
+      </div>
+
+      <div class="hall-card">
+        <div class="hall-banner" style="background: linear-gradient(135deg,#5c3a1a,#d4821a);">
+          <span class="hall-icon">⭐</span>
+        </div>
+        <div class="hall-body">
+          <div class="hall-tag soon">10 rooms available</div>
+          <h3>Prince Hall <span class="tbd"> </span></h3>
+          <p>The fourth POTSEC hall, offering a mix of single and shared rooms. Update the name when confirmed.</p>
+          <ul class="hall-amenities">
+            <li>🚿 Shared bathrooms</li>
+            <li>📶 Wi-Fi enabled</li>
+            <li>💡 24hr electricity</li>
+            <li>🔒 Secure entry</li>
+          </ul>
+          <a href="hall-rooms.html?hall=hall4" class="btn-primary sm">View Rooms</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how-section">
+    <h2>How to book your room</h2>
+    <div class="how-steps">
+      <div class="how-step">
+        <div class="how-icon">🔐</div>
+        <h3>Register / Login</h3>
+        <p>Create your student account using your POTSEC student ID and email.</p>
+      </div>
+      <div class="how-arrow">→</div>
+      <div class="how-step">
+        <div class="how-icon">🏠</div>
+        <h3>Pick a Hall & Room</h3>
+        <p>Browse available rooms across all four halls and choose what suits you.</p>
+      </div>
+      <div class="how-arrow">→</div>
+      <div class="how-step">
+        <div class="how-icon">📋</div>
+        <h3>Fill Booking Form</h3>
+        <p>Submit your personal details and academic year for the booking request.</p>
+      </div>
+      <div class="how-arrow">→</div>
+      <div class="how-step">
+        <div class="how-icon">✅</div>
+        <h3>Get Confirmed</h3>
+        <p>Admin reviews and confirms your booking. You'll see it under My Booking.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- NOTICES -->
+  <section class="notices-section">
+    <div class="section-head">
+      <h2>📢 Notice Board</h2>
+      <a href="#" class="see-all">See all notices →</a>
+    </div>
+    <div class="notices-grid">
+      <div class="notice-card urgent">
+        <span class="notice-tag urgent">Urgent</span>
+        <h4>Semester 2 booking deadline — 15 July</h4>
+        <p>All students must complete their room booking by 15 July or forfeit their spot for the semester.</p>
+        <span class="notice-date">Posted: 20 June 2025</span>
+      </div>
+      <div class="notice-card">
+        <span class="notice-tag info">Notice</span>
+        <h4>Water outage — Nkatiah Hall</h4>
+        <p>Scheduled maintenance on 29 June. Water will be restored by 5:00 PM.</p>
+        <span class="notice-date">Posted: 25 June 2025</span>
+      </div>
+      <div class="notice-card">
+        <span class="notice-tag info">Notice</span>
+        <h4>Majesty Hall new study room open</h4>
+        <p>The renovated study room on the 2nd floor is now available to all residents 24/7.</p>
+        <span class="notice-date">Posted: 18 June 2025</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="logo">
+          <div class="logo-badge sm">P</div>
+          <div>
+            <div class="logo-name">POTSEC</div>
+            <div class="logo-sub">Hall Management System</div>
+          </div>
+        </div>
+        <p>Managing student accommodation for POTSEC TVET College.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Halls</h4>
+        <a href="hall-rooms.html?hall=nkatiah">Nkatiah Hall</a>
+        <a href="hall-rooms.html?hall=majesty">Majesty Hall</a>
+        <a href="hall-rooms.html?hall=appiah">Appiah Agyei Hall</a>
+        <a href="hall-rooms.html?hall=hall4">Hall 4</a>
+      </div>
+      <div class="footer-col">
+        <h4>Account</h4>
+        <a href="hall-login.html">Login</a>
+        <a href="hall-login.html">Register</a>
+        <a href="hall-mybooking.html">My Booking</a>
+        <a href="hall-admin.html">Admin Panel</a>
+      </div>
+      <div class="footer-col">
+        <h4>Support</h4>
+        <a href="#">Contact Hall Office</a>
+        <a href="#">FAQs</a>
+        <a href="#">Hostel Rules</a>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2025 POTSEC Hall Management System · POTSEC TVET College</div>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.querySelector('.nav-links').classList.toggle('open');
+    }
+  </script>
+
+</body>
+</html>

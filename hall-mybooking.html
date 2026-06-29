@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Booking – POTSEC Hall Management</title>
+  <link rel="stylesheet" href="hall-style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <nav class="navbar">
+    <a href="hall-index.html" class="logo">
+      <div class="logo-badge">P</div>
+      <div><div class="logo-name">POTSEC</div><div class="logo-sub">Hall Management System</div></div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="hall-index.html">Home</a></li>
+      <li><a href="hall-rooms.html">Book a Room</a></li>
+      <li><a href="hall-mybooking.html" class="active">My Booking</a></li>
+      <li><a href="hall-admin.html">Admin</a></li>
+      <li><a href="hall-login.html" class="btn-nav">Login</a></li>
+    </ul>
+    <button class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+  </nav>
+
+  <div class="page-banner">
+    <h1>My Booking</h1>
+    <p>View and manage your current room allocation</p>
+  </div>
+
+  <section class="mybooking-layout">
+
+    <!-- Student Profile Card -->
+    <div class="student-card">
+      <div class="student-avatar">KO</div>
+      <div class="student-info">
+        <h2>Kofi Owusu</h2>
+        <div class="student-meta">
+          <span>🪪 POTSEC/2023/042</span>
+          <span>📚 Electrical Engineering · Level 200</span>
+          <span>📞 024 000 0000</span>
+        </div>
+      </div>
+      <div class="booking-status confirmed">✓ Booking Confirmed</div>
+    </div>
+
+    <!-- Booking Details -->
+    <div class="booking-details-grid">
+
+      <div class="booking-detail-card main">
+        <div class="bdc-header">
+          <h3>Room Allocation</h3>
+          <span class="semester-badge">Semester 2 · 2024/25</span>
+        </div>
+        <div class="room-allocation">
+          <div class="alloc-banner appiah">
+            <span class="alloc-icon">🌿</span>
+            <div>
+              <div class="alloc-hall">Appiah Agyei Hall</div>
+              <div class="alloc-room">Room 305</div>
+            </div>
+          </div>
+          <div class="alloc-details">
+            <div class="alloc-row"><span>Room Type</span><span>Single Occupancy</span></div>
+            <div class="alloc-row"><span>Floor</span><span>Third Floor · Quiet Wing</span></div>
+            <div class="alloc-row"><span>Gender</span><span>Female</span></div>
+            <div class="alloc-row"><span>Bed Number</span><span>Bed A</span></div>
+            <div class="alloc-row"><span>Locker</span><span>Locker #305-A</span></div>
+            <div class="alloc-row fee"><span>Semester Fee</span><span>GH₵ 450</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="booking-detail-card">
+        <h3>Booking Timeline</h3>
+        <div class="timeline">
+          <div class="tl-item done">
+            <div class="tl-dot done">✓</div>
+            <div class="tl-text">
+              <strong>Request Submitted</strong>
+              <span>12 June 2025 · 9:32 AM</span>
+            </div>
+          </div>
+          <div class="tl-line done"></div>
+          <div class="tl-item done">
+            <div class="tl-dot done">✓</div>
+            <div class="tl-text">
+              <strong>Payment Verified</strong>
+              <span>13 June 2025 · 11:00 AM</span>
+            </div>
+          </div>
+          <div class="tl-line done"></div>
+          <div class="tl-item done">
+            <div class="tl-dot done">✓</div>
+            <div class="tl-text">
+              <strong>Booking Confirmed</strong>
+              <span>14 June 2025 · 2:15 PM</span>
+            </div>
+          </div>
+          <div class="tl-line"></div>
+          <div class="tl-item">
+            <div class="tl-dot">🗓️</div>
+            <div class="tl-text">
+              <strong>Move-in Date</strong>
+              <span>1 July 2025</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="booking-detail-card">
+        <h3>Payment Summary</h3>
+        <div class="pay-rows">
+          <div class="pay-row"><span>Room Fee</span><span>GH₵ 450.00</span></div>
+          <div class="pay-row"><span>Registration Fee</span><span>GH₵ 20.00</span></div>
+          <div class="pay-row"><span>Caution Deposit</span><span>GH₵ 50.00</span></div>
+          <div class="pay-divider"></div>
+          <div class="pay-row total"><span>Total</span><span>GH₵ 520.00</span></div>
+          <div class="pay-row paid"><span>Amount Paid</span><span>GH₵ 520.00</span></div>
+          <div class="pay-row balance green"><span>Balance</span><span>GH₵ 0.00 ✓</span></div>
+        </div>
+      </div>
+
+      <div class="booking-detail-card">
+        <h3>Hall Rules Reminder</h3>
+        <ul class="rules-list">
+          <li>🔕 Quiet hours: 10:00 PM – 6:00 AM</li>
+          <li>🚫 No cooking in rooms</li>
+          <li>🔒 Keep your locker locked at all times</li>
+          <li>🚪 Visitors allowed 8 AM – 8 PM only</li>
+          <li>🧹 Room inspection every Friday</li>
+          <li>📵 No loud music after 9 PM</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="mybooking-actions">
+      <a href="hall-rooms.html" class="btn-primary">Change Room Request</a>
+      <button class="btn-danger" onclick="confirm('Are you sure you want to cancel your booking?')">Cancel Booking</button>
+      <button class="btn-ghost" onclick="window.print()">🖨️ Print Booking Slip</button>
+    </div>
+
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="logo"><div class="logo-badge sm">P</div><div><div class="logo-name">POTSEC</div><div class="logo-sub">Hall Management System</div></div></div>
+        <p>Managing student accommodation for POTSEC TVET College.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <a href="hall-index.html">Home</a>
+        <a href="hall-rooms.html">Book a Room</a>
+        <a href="hall-mybooking.html">My Booking</a>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2025 POTSEC Hall Management System</div>
+  </footer>
+
+</body>
+</html>

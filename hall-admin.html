@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Dashboard – POTSEC Hall Management</title>
+  <link rel="stylesheet" href="hall-style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <nav class="navbar">
+    <a href="hall-index.html" class="logo">
+      <div class="logo-badge">P</div>
+      <div><div class="logo-name">POTSEC</div><div class="logo-sub">Hall Management System</div></div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="hall-index.html">Home</a></li>
+      <li><a href="hall-rooms.html">Book a Room</a></li>
+      <li><a href="hall-mybooking.html">My Booking</a></li>
+      <li><a href="hall-admin.html" class="active">Admin</a></li>
+      <li><a href="hall-login.html" class="btn-nav">Login</a></li>
+    </ul>
+    <button class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+  </nav>
+
+  <div class="page-banner admin">
+    <h1>Admin Dashboard</h1>
+    <p>Manage rooms, bookings, and student allocations across all POTSEC halls</p>
+  </div>
+
+  <section class="admin-layout">
+
+    <!-- Sidebar -->
+    <aside class="admin-sidebar">
+      <nav class="admin-nav">
+        <a href="#overview" class="admin-nav-item active">📊 Overview</a>
+        <a href="#bookings" class="admin-nav-item">📋 All Bookings</a>
+        <a href="#rooms" class="admin-nav-item">🏠 Manage Rooms</a>
+        <a href="#students" class="admin-nav-item">👥 Students</a>
+        <a href="#notices" class="admin-nav-item">📢 Notices</a>
+      </nav>
+      <div class="admin-sidebar-info">
+        <div class="admin-avatar">AD</div>
+        <div>
+          <div class="admin-name">Hall Administrator</div>
+          <div class="admin-role">POTSEC Admin</div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="admin-main">
+
+      <!-- Stats Row -->
+      <div class="admin-stats" id="overview">
+        <div class="admin-stat-card">
+          <div class="ast-icon blue">🏠</div>
+          <div class="ast-num">248</div>
+          <div class="ast-label">Total Rooms</div>
+        </div>
+        <div class="admin-stat-card">
+          <div class="ast-icon green">✅</div>
+          <div class="ast-num">186</div>
+          <div class="ast-label">Occupied</div>
+        </div>
+        <div class="admin-stat-card">
+          <div class="ast-icon orange">🔓</div>
+          <div class="ast-num">62</div>
+          <div class="ast-label">Available</div>
+        </div>
+        <div class="admin-stat-card">
+          <div class="ast-icon purple">⏳</div>
+          <div class="ast-num">14</div>
+          <div class="ast-label">Pending Requests</div>
+        </div>
+      </div>
+
+      <!-- Hall Occupancy -->
+      <div class="admin-section">
+        <h3>Hall Occupancy</h3>
+        <div class="hall-bars">
+          <div class="hall-bar-row">
+            <span class="hbr-name">Nkatiah Hall</span>
+            <div class="hbr-track">
+              <div class="hbr-fill nkatiah" style="width:72%"></div>
+            </div>
+            <span class="hbr-pct">72% · 52/72 rooms</span>
+          </div>
+          <div class="hall-bar-row">
+            <span class="hbr-name">Majesty Hall</span>
+            <div class="hbr-track">
+              <div class="hbr-fill majesty" style="width:60%"></div>
+            </div>
+            <span class="hbr-pct">60% · 48/80 rooms</span>
+          </div>
+          <div class="hall-bar-row">
+            <span class="hbr-name">Appiah Agyei Hall</span>
+            <div class="hbr-track">
+              <div class="hbr-fill appiah" style="width:82%"></div>
+            </div>
+            <span class="hbr-pct">82% · 50/60 rooms</span>
+          </div>
+          <div class="hall-bar-row">
+            <span class="hbr-name">Hall 4</span>
+            <div class="hbr-track">
+              <div class="hbr-fill hall4" style="width:56%"></div>
+            </div>
+            <span class="hbr-pct">56% · 20/36 rooms</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pending Bookings -->
+      <div class="admin-section" id="bookings">
+        <div class="admin-section-header">
+          <h3>Pending Booking Requests</h3>
+          <span class="pending-badge">14 pending</span>
+        </div>
+        <div class="bookings-table">
+          <div class="bt-header">
+            <span>Student</span>
+            <span>ID</span>
+            <span>Hall · Room</span>
+            <span>Type</span>
+            <span>Submitted</span>
+            <span>Action</span>
+          </div>
+
+          <div class="bt-row">
+            <span class="bt-name">Ama Boateng</span>
+            <span class="bt-id">POTSEC/2024/011</span>
+            <span>Majesty Hall · Rm 210</span>
+            <span><span class="type-tag single">Single</span></span>
+            <span class="bt-date">26 Jun 2025</span>
+            <span class="bt-actions">
+              <button class="action-approve" onclick="approve(this)">Approve</button>
+              <button class="action-reject" onclick="reject(this)">Reject</button>
+            </span>
+          </div>
+
+          <div class="bt-row">
+            <span class="bt-name">Kweku Asante</span>
+            <span class="bt-id">POTSEC/2023/087</span>
+            <span>Nkatiah Hall · Rm 112</span>
+            <span><span class="type-tag double">Double</span></span>
+            <span class="bt-date">25 Jun 2025</span>
+            <span class="bt-actions">
+              <button class="action-approve" onclick="approve(this)">Approve</button>
+              <button class="action-reject" onclick="reject(this)">Reject</button>
+            </span>
+          </div>
+
+          <div class="bt-row">
+            <span class="bt-name">Efua Mensah</span>
+            <span class="bt-id">POTSEC/2024/034</span>
+            <span>Appiah Agyei · Rm 308</span>
+            <span><span class="type-tag single">Single</span></span>
+            <span class="bt-date">25 Jun 2025</span>
+            <span class="bt-actions">
+              <button class="action-approve" onclick="approve(this)">Approve</button>
+              <button class="action-reject" onclick="reject(this)">Reject</button>
+            </span>
+          </div>
+
+          <div class="bt-row">
+            <span class="bt-name">Yaw Darko</span>
+            <span class="bt-id">POTSEC/2022/156</span>
+            <span>Hall 4 · Rm 405</span>
+            <span><span class="type-tag triple">Triple</span></span>
+            <span class="bt-date">24 Jun 2025</span>
+            <span class="bt-actions">
+              <button class="action-approve" onclick="approve(this)">Approve</button>
+              <button class="action-reject" onclick="reject(this)">Reject</button>
+            </span>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Recent Confirmed -->
+      <div class="admin-section" id="students">
+        <h3>Recently Confirmed Bookings</h3>
+        <div class="bookings-table">
+          <div class="bt-header">
+            <span>Student</span>
+            <span>ID</span>
+            <span>Hall · Room</span>
+            <span>Confirmed</span>
+            <span>Status</span>
+          </div>
+          <div class="bt-row">
+            <span class="bt-name">Kofi Owusu</span>
+            <span class="bt-id">POTSEC/2023/042</span>
+            <span>Appiah Agyei · Rm 305</span>
+            <span class="bt-date">14 Jun 2025</span>
+            <span><span class="status-confirmed">✓ Confirmed</span></span>
+          </div>
+          <div class="bt-row">
+            <span class="bt-name">Adwoa Frimpong</span>
+            <span class="bt-id">POTSEC/2024/007</span>
+            <span>Majesty Hall · Rm 201</span>
+            <span class="bt-date">13 Jun 2025</span>
+            <span><span class="status-confirmed">✓ Confirmed</span></span>
+          </div>
+          <div class="bt-row">
+            <span class="bt-name">Nana Kwame</span>
+            <span class="bt-id">POTSEC/2023/098</span>
+            <span>Nkatiah Hall · Rm 103</span>
+            <span class="bt-date">12 Jun 2025</span>
+            <span><span class="status-confirmed">✓ Confirmed</span></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Notices Management -->
+      <div class="admin-section" id="notices">
+        <div class="admin-section-header">
+          <h3>Notice Board</h3>
+          <button class="btn-primary sm" onclick="alert('Post Notice form would open here')">+ Post Notice</button>
+        </div>
+        <div class="notice-manage-list">
+          <div class="notice-manage-row">
+            <div>
+              <strong>Semester 2 booking deadline — 15 July</strong>
+              <span class="nm-date">Posted 20 Jun · Urgent</span>
+            </div>
+            <div class="nm-actions">
+              <button class="action-edit">Edit</button>
+              <button class="action-reject">Delete</button>
+            </div>
+          </div>
+          <div class="notice-manage-row">
+            <div>
+              <strong>Water outage — Nkatiah Hall (29 Jun)</strong>
+              <span class="nm-date">Posted 25 Jun · Info</span>
+            </div>
+            <div class="nm-actions">
+              <button class="action-edit">Edit</button>
+              <button class="action-reject">Delete</button>
+            </div>
+          </div>
+          <div class="notice-manage-row">
+            <div>
+              <strong>Majesty Hall study room now open</strong>
+              <span class="nm-date">Posted 18 Jun · Info</span>
+            </div>
+            <div class="nm-actions">
+              <button class="action-edit">Edit</button>
+              <button class="action-reject">Delete</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="logo"><div class="logo-badge sm">P</div><div><div class="logo-name">POTSEC</div><div class="logo-sub">Hall Management System</div></div></div>
+        <p>Managing student accommodation for POTSEC TVET College.</p>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2025 POTSEC Hall Management System</div>
+  </footer>
+
+  <script>
+    function approve(btn) {
+      const row = btn.closest('.bt-row');
+      row.querySelector('.bt-actions').innerHTML = '<span class="status-confirmed">✓ Approved</span>';
+    }
+    function reject(btn) {
+      const row = btn.closest('.bt-row');
+      row.style.opacity = '0.4';
+      row.querySelector('.bt-actions').innerHTML = '<span style="color:#c0392b;font-weight:600;">✕ Rejected</span>';
+    }
+  </script>
+
+</body>
+</html>

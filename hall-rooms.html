@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Book a Room – POTSEC Hall Management</title>
+  <link rel="stylesheet" href="hall-style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <nav class="navbar">
+    <a href="hall-index.html" class="logo">
+      <div class="logo-badge">P</div>
+      <div><div class="logo-name">POTSEC</div><div class="logo-sub">Hall Management System</div></div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="hall-index.html">Home</a></li>
+      <li><a href="hall-rooms.html" class="active">Book a Room</a></li>
+      <li><a href="hall-mybooking.html">My Booking</a></li>
+      <li><a href="hall-admin.html">Admin</a></li>
+      <li><a href="hall-login.html" class="btn-nav">Login</a></li>
+    </ul>
+    <button class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+  </nav>
+
+  <div class="page-banner">
+    <h1>Book a Room</h1>
+    <p>Browse available rooms across all POTSEC halls and submit your booking</p>
+  </div>
+
+  <section class="rooms-layout">
+
+    <!-- Filters -->
+    <aside class="room-filters">
+      <h3>Filter Rooms</h3>
+
+      <div class="filter-group">
+        <label>Hall</label>
+        <select class="filter-select" onchange="filterRooms()">
+          <option value="all">All Halls</option>
+          <option value="nkatiah">Nkatiah Hall</option>
+          <option value="majesty">Majesty Hall</option>
+          <option value="appiah">Appiah Agyei Hall</option>
+          <option value="hall4">Hall 4</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label>Room Type</label>
+        <select class="filter-select">
+          <option>All Types</option>
+          <option>Single</option>
+          <option>Double (Shared)</option>
+          <option>Triple</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label>Gender</label>
+        <select class="filter-select">
+          <option>All</option>
+          <option>Male</option>
+          <option>Female</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label>Status</label>
+        <label class="check-label"><input type="checkbox" checked/> Available</label>
+        <label class="check-label"><input type="checkbox"/> Occupied</label>
+      </div>
+
+      <div class="filter-group">
+        <label>Semester</label>
+        <select class="filter-select">
+          <option>2024/2025 – Semester 2</option>
+          <option>2025/2026 – Semester 1</option>
+        </select>
+      </div>
+
+      <button class="btn-primary" style="width:100%;margin-top:1rem;">Apply Filters</button>
+    </aside>
+
+    <!-- Room Listings -->
+    <div class="room-listings">
+      <div class="listings-topbar">
+        <span>Showing <strong>12</strong> available rooms</span>
+        <input type="text" placeholder="🔍 Search by room number..." class="search-input"/>
+      </div>
+
+      <div class="rooms-grid">
+
+        <!-- NKATIAH HALL ROOMS -->
+        <div class="room-card available">
+          <div class="room-header nkatiah">
+            <span class="room-hall-tag">Nkatiah Hall</span>
+            <span class="room-status available">Available</span>
+          </div>
+          <div class="room-body">
+            <div class="room-number">Room 101</div>
+            <div class="room-type">Single Occupancy · Male</div>
+            <ul class="room-features">
+              <li>🪟 Ground floor · Window view</li>
+              <li>🔒 Individual locker</li>
+              <li>📶 Wi-Fi access</li>
+            </ul>
+            <div class="room-fee">GH₵ 450 <span>/ semester</span></div>
+            <button class="btn-primary sm" onclick="openBookingModal('Room 101','Nkatiah Hall','Single','GH₵ 450')">Book This Room</button>
+          </div>
+        </div>
+
+        <div class="room-card available">
+          <div class="room-header nkatiah">
+            <span class="room-hall-tag">Nkatiah Hall</span>
+            <span class="room-status available">Available</span>
+          </div>
+          <div class="room-body">
+            <div class="room-number">Room 104</div>
+            <div class="room-type">Double Occupancy · Male</div>
+            <ul class="room-features">
+              <li>🪟 First floor</li>
+              <li>🔒 Shared locker</li>
+              <li>📶 Wi-Fi access</li>
+            </ul>
+            <div class="room-fee">GH₵ 300 <span>/ semester</span></div>
+            <button class="btn-primary sm" onclick="openBookingModal('Room 104','Nkatiah Hall','Double','GH₵ 300')">Book This Room</button>
+          </div>
+        </div>
+
+        <!-- MAJESTY HALL ROOMS -->
+        <div class="room-card available">
+          <div class="room-header majesty">
+            <span class="room-hall-tag">Majesty Hall</span>
+            <span class="room-status available">Available</span>
+          </div>
+          <div class="room-body">
+            <div class="room-number">Room 202</div>
+            <div class="room-type">Single Occupancy · Female</div>
+            <ul class="room-features">
+              <li>🚿 En-suite bathroom</li>
+              <li>🔒 Individual locker</li>
+              <li>📶 Wi-Fi access</li>
+            </ul>
+            <div class="room-fee">GH₵ 600 <span>/ semester</span></div>
+            <button class="btn-primary sm" onclick="openBookingModal('Room 202','Majesty Hall','Single (En-suite)','GH₵ 600')">Book This Room</button>
+          </div>
+        </div>
+
+        <div class="room-card occupied">
+          <div class="room-header majesty">
+            <span class="room-hall-tag">Majesty Hall</span>
+            <span class="room-status occupied">Occupied</span>
+          </div>
+          <div class="room-body">
+            <div class="room-number">Room 205</div>
+            <div class="room-type">Double Occupancy · Female</div>
+            <ul class="room-features">
+              <li>🪟 Second floor</li>
+              <li>🔒 Shared locker</li>
+              <li>📶 Wi-Fi access</li>
+            </ul>
+            <div class="room-fee">GH₵ 350 <span>/ semester</span></div>
+            <button class="btn-outline sm" disabled>Fully Booked</button>
+          </div>
+        </div>
+
+        <!-- APPIAH AGYEI HALL ROOMS -->
+        <div class="room-card available">
+          <div class="room-header appiah">
+            <span class="room-hall-tag">Appiah Agyei Hall</span>
+            <span class="room-status available">Available</span>
+          </div>
+          <div class="room-body">
+            <div class="room-number">Room 301</div>
+            <div class="room-type">Triple Occupancy · Male</div>
+            <ul class="room-features">
+              <li>📚 Near study room</li>
+              <li>🔒 Individual lockers</li>
+              <li>📶 Wi-Fi access</li>
+            </ul>
+            <div class="room-fee">GH₵ 250 <span>/ semester</span></div>
+            <button class="btn-primary sm" onclick="openBookingModal('Room 301','Appiah Agyei Hall','Triple','GH₵ 250')">Book This Room</button>
+          </div>
+        </div>
+
+        <div class="room-card available">
+          <div class="room-header appiah">
+            <span class="room-hall-tag">Appiah Agyei Hall</span>
+            <span class="room-status available">Available</span>
+          </div>
+          <div class="room-body">
+            <div class="room-number">Room 305</div>
+            <div class="room-type">Single Occupancy · Female</div>
+            <ul class="room-features">
+              <li>🪟 Quiet wing</li>
+              <li>🔒 Individual locker</li>
+              <li>📶 Wi-Fi access</li>
+            </ul>
+            <div class="room-fee">GH₵ 450 <span>/ semester</span></div>
+            <button class="btn-primary sm" onclick="openBookingModal('Room 305','Appiah Agyei Hall','Single','GH₵ 450')">Book This Room</button>
+          </div>
+        </div>
+
+        <!-- HALL 4 ROOMS -->
+        <div class="room-card available">
+          <div class="room-header hall4">
+            <span class="room-hall-tag">Hall 4</span>
+            <span class="room-status available">Available</span>
+          </div>
+          <div class="room-body">
+            <div class="room-number">Room 401</div>
+            <div class="room-type">Double Occupancy · Male</div>
+            <ul class="room-features">
+              <li>🪟 Ground floor</li>
+              <li>🔒 Shared locker</li>
+              <li>📶 Wi-Fi access</li>
+            </ul>
+            <div class="room-fee">GH₵ 300 <span>/ semester</span></div>
+            <button class="btn-primary sm" onclick="openBookingModal('Room 401','Hall 4','Double','GH₵ 300')">Book This Room</button>
+          </div>
+        </div>
+
+        <div class="room-card occupied">
+          <div class="room-header hall4">
+            <span class="room-hall-tag">Hall 4</span>
+            <span class="room-status occupied">Occupied</span>
+          </div>
+          <div class="room-body">
+            <div class="room-number">Room 403</div>
+            <div class="room-type">Triple Occupancy · Male</div>
+            <ul class="room-features">
+              <li>🪟 First floor</li>
+              <li>🔒 Shared lockers</li>
+              <li>📶 Wi-Fi access</li>
+            </ul>
+            <div class="room-fee">GH₵ 250 <span>/ semester</span></div>
+            <button class="btn-outline sm" disabled>Fully Booked</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOKING MODAL -->
+  <div class="modal-overlay" id="bookingModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h3>Book a Room</h3>
+        <button class="modal-close" onclick="closeModal()">✕</button>
+      </div>
+      <div class="modal-selected">
+        <div class="selected-detail">
+          <span class="sel-label">Room</span>
+          <span class="sel-val" id="sel-room">—</span>
+        </div>
+        <div class="selected-detail">
+          <span class="sel-label">Hall</span>
+          <span class="sel-val" id="sel-hall">—</span>
+        </div>
+        <div class="selected-detail">
+          <span class="sel-label">Type</span>
+          <span class="sel-val" id="sel-type">—</span>
+        </div>
+        <div class="selected-detail">
+          <span class="sel-label">Fee</span>
+          <span class="sel-val fee" id="sel-fee">—</span>
+        </div>
+      </div>
+      <form onsubmit="submitBooking(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Full Name</label>
+            <input type="text" placeholder="e.g. Ama Owusu" required/>
+          </div>
+          <div class="form-group">
+            <label>Student ID</label>
+            <input type="text" placeholder="e.g. POTSEC/2023/042" required/>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Programme</label>
+            <input type="text" placeholder="e.g. Electrical Engineering"/>
+          </div>
+          <div class="form-group">
+            <label>Year / Level</label>
+            <select>
+              <option>Level 100</option>
+              <option>Level 200</option>
+              <option>Level 300</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Phone Number</label>
+          <input type="tel" placeholder="e.g. 024 000 0000" required/>
+        </div>
+        <div class="form-group">
+          <label>Semester</label>
+          <select>
+            <option>2024/2025 – Semester 2</option>
+            <option>2025/2026 – Semester 1</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Emergency Contact</label>
+          <input type="text" placeholder="Parent/Guardian name and number"/>
+        </div>
+        <button type="submit" class="btn-primary" style="width:100%;margin-top:0.5rem;">Submit Booking Request</button>
+      </form>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="logo"><div class="logo-badge sm">P</div><div><div class="logo-name">POTSEC</div><div class="logo-sub">Hall Management System</div></div></div>
+        <p>Managing student accommodation for POTSEC TVET College.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <a href="hall-index.html">Home</a>
+        <a href="hall-rooms.html">Book a Room</a>
+        <a href="hall-mybooking.html">My Booking</a>
+        <a href="hall-login.html">Login</a>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2025 POTSEC Hall Management System</div>
+  </footer>
+
+  <script>
+    function openBookingModal(room, hall, type, fee) {
+      document.getElementById('sel-room').textContent = room;
+      document.getElementById('sel-hall').textContent = hall;
+      document.getElementById('sel-type').textContent = type;
+      document.getElementById('sel-fee').textContent = fee;
+      document.getElementById('bookingModal').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeModal() {
+      document.getElementById('bookingModal').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+    function submitBooking(e) {
+      e.preventDefault();
+      closeModal();
+      alert('✅ Booking request submitted! The hall administrator will confirm your booking within 24 hours.');
+    }
+    document.getElementById('bookingModal').addEventListener('click', function(e) {
+      if (e.target === this) closeModal();
+    });
+  </script>
+
+</body>
+</html>
